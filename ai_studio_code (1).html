@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Myself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== original palette combined with subtle checkered background ===== */
+:root {
+  --green-900: #0A3D25;
+  --green-800: #0E4A2C;
+  --green-700: #14603A;
+  --yellow: #F6D682;
+  --yellow-2: #F0C55F;
+  --amber: #E79A33;
+  --orange: #D4711F;
+  --orange-deep: #B85A13;
+  
+  --highlight: #81C784; 
+  --highlight-soft: rgba(129, 199, 132, 0.2);
+
+  --cream: #FBF4E2;
+  --tomato: #D8352B;
+  --tomato-2: #A8231C;
+  --pink: #E8548C; 
+
+  --bg: var(--cream);
+  --ink: var(--green-900);
+  --ink-soft: #3E6B54;
+  --rule: rgba(10, 61, 37, .18);
+  
+  /* Light mode microscope background - Now Pinkish */
+  --fov-core: #FCEDF2;
+  --fov-edge: #E3A8B9;
+
+  /* Checkered pattern color */
+  --check-pattern: rgba(216, 53, 43, 0.05);
+
+  --f-display: "Baloo 2", "Trebuchet MS", sans-serif;
+  --f-body: "Nunito", "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--green-800); --ink: var(--cream); --ink-soft: #BFE0CD; --rule: rgba(251, 244, 226, .22);
+    --check-pattern: rgba(255, 255, 255, 0.03);
+    /* Dark mode microscope background - Dark warm void for Yellow Fluorescence */
+    --fov-core: #1A1608; 
+    --fov-edge: #0D0A02;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: var(--green-800); --ink: var(--cream); --ink-soft: #BFE0CD; --rule: rgba(251, 244, 226, .22);
+  --check-pattern: rgba(255, 255, 255, 0.03);
+  /* Dark mode microscope background - Dark warm void for Yellow Fluorescence */
+  --fov-core: #1A1608; 
+  --fov-edge: #0D0A02;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image: 
+    linear-gradient(90deg, var(--check-pattern) 50%, transparent 50%),
+    linear-gradient(var(--check-pattern) 50%, transparent 50%);
+  background-size: 36px 36px;
+  color: var(--ink);
+  font-family: var(--f-body); font-size: 17px; line-height: 1.6; overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+h1, h2, h3 { font-family: var(--f-display); font-weight: 800; line-height: 1.02; margin: 0; letter-spacing: .01em; }
+p { margin: 0 0 .9em; }
+:focus-visible { outline: 3px solid var(--highlight); outline-offset: 3px; border-radius: 6px; }
+.wrap { width: min(1120px, 92vw); margin: 0 auto; }
+
+.stroke-lg, .stroke-md, .stroke-sm { color: var(--yellow); -webkit-text-stroke: 3px var(--orange-deep); paint-order: stroke fill; }
+.stroke-md { -webkit-text-stroke-width: 2.4px; }
+.stroke-sm { -webkit-text-stroke-width: 2px; }
+
+/* ===== nav ===== */
+.bar { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 2px solid var(--rule); }
+.bar .wrap { display: flex; align-items: center; gap: 14px; height: 60px; }
+.logo { font-family: var(--f-display); font-weight: 800; font-size: 20px; color: var(--ink); }
+.bar nav { margin-left: auto; display: flex; gap: 2px; flex-wrap: wrap; }
+.bar nav a { text-decoration: none; color: var(--ink-soft); font-weight: 700; font-size: 14px; padding: 7px 12px; border-radius: 999px; }
+.bar nav a:hover { color: var(--ink); background: var(--highlight-soft); }
+.swap { font: inherit; font-weight: 700; font-size: 14px; cursor: pointer; color: var(--ink); background: transparent; border: 2px solid var(--rule); border-radius: 999px; padding: 6px 14px; white-space: nowrap; }
+.swap:hover { border-color: var(--highlight); color: var(--highlight); }
+@media(max-width:780px) { .bar nav a { padding: 6px 8px; font-size: 13px; } .logo { font-size: 17px; } }
+
+/* ===== hero ===== */
+.hero { position: relative; padding: clamp(40px, 7vw, 72px) 0 20px; overflow: hidden; }
+.doodle { position: absolute; stroke: var(--yellow); stroke-width: 11; fill: none; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.d1 { top: 2px; left: 220px; width: 190px; opacity: .95; }
+.d2 { top: 34px; right: 2%; width: 220px; }
+@media(max-width:900px) { .doodle { display: none; } }
+
+.hero .wrap { position: relative; z-index: 2; }
+.eyebrow { font-size: clamp(20px, 3.6vw, 30px); margin-left: 4px; }
+.title { font-size: clamp(46px, 10vw, 96px); line-height: .9; margin: 2px 0 22px; letter-spacing: .005em; text-transform: uppercase; }
+
+/* field of view, the microscope circle - STRICTLY UNTOUCHED HTML/CSS STRUCTURE */
+.fov-holder { position: relative; display: grid; place-items: center; }
+
+/* Light mode outer rim uses pinkish theme */
+.fov { position: relative; width: min(440px, 84vw); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 50% 42%, var(--fov-core), var(--fov-edge) 78%); overflow: hidden; border: 7px solid var(--pink); box-shadow: 0 0 0 4px #C2386D, 10px 12px 0 rgba(232, 84, 140, 0.35); transition: border-color 0.3s, box-shadow 0.3s; }
+/* Light mode inner shadow (Pink) */
+.fov::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 0 70px 26px color-mix(in srgb, var(--pink) 35%, transparent); pointer-events: none; transition: box-shadow 0.3s; }
+
+/* Dark mode (Fluorescence) outer rim uses Yellow theme */
+:root[data-theme="dark"] .fov {
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 4px var(--orange-deep), 10px 12px 0 rgba(231, 154, 51, 0.25);
+}
+/* Dark mode (Fluorescence) inner shadow (Yellow/Amber glowing void) */
+:root[data-theme="dark"] .fov::after {
+  box-shadow: inset 0 0 80px 26px color-mix(in srgb, var(--yellow) 35%, transparent),
+              inset 0 0 30px 10px color-mix(in srgb, var(--amber) 25%, transparent) !important;
+}
+
+.fov canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.fov-inner { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; padding: 14%; z-index: 2; filter: blur(var(--blur, 14px)); opacity: var(--sharp, .22); transition: filter .12s linear, opacity .12s linear; }
+.greet { font-weight: 700; color: var(--ink-soft); font-size: clamp(12px, 2.2vw, 14px); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .06em; }
+.namewrap { display: flex; align-items: baseline; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.namewrap label { font-weight: 700; color: var(--ink-soft); font-size: 14px; }
+#nameField { font-family: var(--f-display); font-weight: 800; font-size: clamp(20px, 4.4vw, 32px); color: var(--ink); background: transparent; border: none; border-bottom: 3px dashed var(--highlight); padding: 0 4px 2px; max-width: 80%; width: 14ch; outline: none; text-align: center; }
+.roles { margin-top: 12px; font-size: clamp(13px, 2.4vw, 15.5px); color: var(--ink-soft); font-weight: 700; }
+.roles b { color: var(--green-700); }
+:root[data-theme="dark"] .roles b { color: var(--yellow); }
+@media (prefers-color-scheme:dark) { :root:not([data-theme="light"]) .roles b { color: var(--yellow); } }
+
+.dial { width: min(440px, 84vw); margin: 22px auto 0; display: flex; align-items: center; gap: 12px; }
+.dial label { font-size: 13px; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
+input[type=range] { -webkit-appearance: none; appearance: none; flex: 1; width: 100%; height: 26px; background: transparent; cursor: pointer; }
+input[type=range]::-webkit-slider-runnable-track { height: 8px; border-radius: 999px; background: var(--orange); }
+input[type=range]::-moz-range-track { height: 8px; border-radius: 999px; background: var(--orange); }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%; margin-top: -9px; background: var(--highlight); border: 4px solid var(--cream); box-shadow: 0 0 0 2px var(--orange-deep); }
+input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--highlight); border: 4px solid var(--cream); box-shadow: 0 0 0 2px var(--orange-deep); }
+.readout { font-size: 13px; font-weight: 700; color: var(--ink-soft); width: 5.5ch; text-align: right; font-variant-numeric: tabular-nums; }
+
+.intro { max-width: 52ch; margin: 26px auto 0; text-align: center; color: var(--ink-soft); font-weight: 600; }
+.intro p { margin: 0 auto .5em; }
+
+/* ===== timeline strip ===== */
+.strip { position: relative; padding: 36px 0 10px; }
+.strip .line { position: absolute; left: 0; right: 0; top: 50px; height: 3px; background: var(--yellow); opacity: .75; }
+.stops { position: relative; display: flex; justify-content: space-between; gap: 8px; }
+.stop { background: none; border: none; cursor: pointer; font: inherit; color: var(--ink); display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; padding: 0; }
+.stop i { width: 34px; height: 34px; border-radius: 50%; background: var(--yellow-2); border: 4px solid var(--highlight); display: block; transition: transform .2s; }
+.stop:hover i, .stop:focus-visible i { transform: scale(1.18); }
+.stop b { font-family: var(--f-display); font-weight: 700; font-size: 14px; text-align: center; line-height: 1.15; }
+@media(max-width:620px) { .stop b { font-size: 12px; } .stop i { width: 26px; height: 26px; border-width: 3px; } }
+
+/* ===== sections and window cards ===== */
+section { padding: clamp(44px, 6vw, 78px) 0; }
+.sec-head { margin-bottom: 26px; max-width: 58ch; }
+.sec-head h2 { font-size: clamp(28px, 5vw, 44px); text-transform: uppercase; }
+.sec-head p { color: var(--ink-soft); margin-top: 14px; font-weight: 600; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+
+/* Fix Expandable Card Layout & Interaction */
+.win { 
+  position: relative; text-align: left; font: inherit; cursor: pointer; padding: 0; 
+  background: var(--yellow); border-radius: 16px; color: var(--green-900); 
+  box-shadow: 9px 9px 0 var(--orange-deep); 
+  transition: transform .18s ease, box-shadow .18s ease; 
+  border: none; outline: none;
+  display: flex; flex-direction: column; width: 100%; align-items: stretch; height: max-content;
+}
+.win:hover { transform: translate(-3px, -3px); box-shadow: 12px 12px 0 var(--orange-deep); }
+.win:active { transform: translate(2px, 2px); box-shadow: 6px 6px 0 var(--orange-deep); }
+.chrome { background: var(--amber); height: 38px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-top-left-radius: 16px; border-top-right-radius: 16px; }
+.chrome i.dot3 { width: 13px; height: 13px; border-radius: 50%; border: 2.5px solid var(--orange-deep); display: block; }
+.chrome .tick { width: 10px; height: 10px; border-radius: 3px; margin-left: 4px; }
+.chrome .label { font-size: 12px; font-weight: 700; color: #123F29; text-transform: lowercase; margin-left: auto; opacity: .85; }
+.win .in { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+.win h3 { font-size: 22px; text-transform: uppercase; margin-bottom: 12px; color: var(--green-900); }
+.win ul { margin: 0; padding-left: 20px; display: grid; gap: 7px; }
+.win li { font-size: 15.5px; font-weight: 600; color: #123F29; }
+
+/* Grid Transition for smooth opening/closing */
+.extra { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+.win[aria-expanded="true"] .extra { grid-template-rows: 1fr; }
+.extra > div { overflow: hidden; }
+.extra-inner { padding-top: 12px; margin-top: 14px; border-top: 2px dashed rgba(10, 61, 37, .25); }
+.extra p { margin: 0; font-size: 15px; color: #2C5240; }
+.tapme { margin-top: 14px; font-family: var(--f-display); font-weight: 700; font-size: 14px; color: var(--orange-deep); }
+
+/* ===== strengths ===== */
+.bars { display: grid; gap: 20px; max-width: 720px; }
+.bar-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.bar-top h3 { font-size: 20px; }
+.bar-top em { font-style: normal; color: var(--ink-soft); font-size: 14px; font-weight: 700; }
+.track { height: 18px; border-radius: 999px; background: rgba(246, 214, 130, .28); border: 2px solid var(--yellow); overflow: hidden; }
+.fill { height: 100%; width: 0; border-radius: 999px; background: var(--c); transition: width 1.1s cubic-bezier(.2, .8, .2, 1); }
+
+/* ===== battery / personality ===== */
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+@media(max-width:820px) { .duo { grid-template-columns: 1fr; } }
+.panel { background: var(--yellow); color: var(--green-900); border-radius: 16px; padding: 24px; box-shadow: 9px 9px 0 var(--orange-deep); }
+.mbti { font-family: var(--f-display); font-weight: 800; font-size: clamp(50px, 10vw, 78px); line-height: 1; display: flex; gap: 6px; }
+.mbti span:nth-child(1) { color: var(--tomato); }
+.mbti span:nth-child(2) { color: var(--orange); }
+.mbti span:nth-child(3) { color: var(--highlight); }
+.mbti span:nth-child(4) { color: var(--green-700); }
+.chips { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li { border: 2.5px solid var(--orange-deep); border-radius: 999px; padding: 4px 13px; font-size: 14px; font-weight: 700; }
+.ends { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.read { margin-top: 14px; min-height: 5.2em; font-size: 15.5px; font-weight: 600; }
+.read b { font-family: var(--f-display); font-size: 20px; display: block; margin-bottom: 2px; }
+
+/* ===== animated cards ===== */
+.gifrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 26px; }
+.gifcard { position: relative; background: var(--yellow); border-radius: 16px; padding: 22px; text-align: center; box-shadow: 9px 9px 0 var(--orange-deep); color: var(--green-900); }
+.gifcard p { margin: 14px 0 0; font-weight: 700; font-size: 15px; }
+.gifcard svg, .gifcard .enfp-anim { margin: 0 auto; }
+
+/* Clean, centered typography caption for Doctor */
+.caption {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--green-900);
+  margin-top: 16px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.wave-loop { transform-origin: 76% 48%; animation: waveLoop 2.4s ease-in-out infinite; }
+@keyframes waveLoop { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-16deg); } 40% { transform: rotate(6deg); } 60% { transform: rotate(-12deg); } }
+
+.enfp-anim { position: relative; width: 170px; height: 170px; }
+.enfp-anim .core { position: absolute; inset: 0; display: grid; place-content: center; font-family: var(--f-display); font-weight: 800; font-size: 26px; color: var(--tomato-2); border: 4px solid var(--tomato-2); border-radius: 50%; width: 88px; height: 88px; margin: auto; background: var(--cream); z-index: 2;}
+.spark { position: absolute; border-radius: 50%; animation: sparkFloat 1.9s ease-in-out infinite; }
+@keyframes sparkFloat { 0%, 100% { transform: translateY(0) scale(1); opacity: .55; } 50% { transform: translateY(-12px) scale(1.25); opacity: 1; } }
+
+/* ===== pomodoro layout fixed ===== */
+.pomodoro-layout { display: flex; gap: 38px; flex-wrap: wrap; align-items: start; }
+.timer { display: flex; flex-direction: column; gap: 24px; align-items: center; flex: 1; min-width: 320px; text-align: center; }
+.tomato { width: min(280px, 72vw); height: auto; display: block; }
+.pointer { transform-origin: 100px 106px; transition: transform .5s linear; }
+.face-txt { font-family: var(--f-display); font-weight: 800; font-size: 26px; fill: var(--tomato-2); }
+.btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+.btn { font-family: var(--f-display); font-weight: 700; font-size: 16px; cursor: pointer; padding: 9px 24px; border-radius: 999px; border: 3px solid var(--orange-deep); background: var(--yellow); color: var(--green-900); box-shadow: 4px 4px 0 var(--orange-deep); transition: transform .12s, box-shadow .12s; }
+.btn:hover { transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--orange-deep); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--orange-deep); }
+.btn.go { background: var(--tomato); color: #fff; border-color: var(--tomato-2); box-shadow: 4px 4px 0 var(--tomato-2); }
+.btn.go:hover { box-shadow: 6px 6px 0 var(--tomato-2); }
+.count { color: var(--ink-soft); font-weight: 700; font-size: 15px; }
+
+/* ===== calendar app ===== */
+.calendar-app { background: var(--yellow); color: var(--green-900); border-radius: 16px; padding: 24px; box-shadow: 9px 9px 0 var(--orange-deep); width: min(100%, 340px); margin: 0 auto; position: relative; }
+.cal-header { display: flex; justify-content: space-between; align-items: center; font-family: var(--f-display); font-size: 22px; font-weight: 800; margin-bottom: 14px; }
+.cal-nav { background: none; border: none; font: inherit; font-size: 22px; cursor: pointer; color: var(--green-900); }
+.cal-nav:hover { color: var(--tomato); }
+.cal-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-weight: 700; margin-bottom: 8px; color: var(--ink-soft); font-size: 14px; }
+.cal-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.cal-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 2px dashed var(--orange-deep); border-radius: 50%; cursor: pointer; font-weight: 700; font-size: 14px; color: var(--green-900); background: var(--cream); transition: transform 0.12s, background 0.12s; }
+.cal-day:hover { transform: scale(1.1); background: var(--highlight); color: #fff; border-color: var(--highlight); }
+.cal-day.has-test { background: var(--tomato); color: #fff; border: 2px solid var(--tomato-2); font-weight: 800; }
+
+.sketch-modal { position: absolute; top: 10%; left: 5%; right: 5%; background: var(--yellow); border-radius: 16px; padding: 20px; box-shadow: 6px 6px 0 var(--orange-deep); z-index: 100; display: flex; flex-direction: column; gap: 12px; border: 3px solid var(--orange-deep); }
+.sketch-modal h4 { margin: 0; font-size: 22px; text-align: center; font-family: var(--f-display); font-weight: 800; }
+.sketch-modal input { font-family: var(--f-body); font-size: 15px; font-weight: 600; padding: 8px 12px; background: var(--cream); border: 2px solid var(--orange-deep); border-radius: 8px; outline: none; color: var(--green-900); }
+.sketch-modal input:focus { border-color: var(--highlight); }
+
+/* ===== path ===== */
+.path { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: 18px; }
+.path li { counter-increment: s; position: relative; padding: 20px 22px 20px 78px; background: var(--yellow); color: var(--green-900); border-radius: 16px; box-shadow: 8px 8px 0 var(--orange-deep); }
+.path li::before { content: counter(s); position: absolute; left: 20px; top: 20px; width: 42px; height: 42px; border-radius: 50%; display: grid; place-content: center; font-family: var(--f-display); font-weight: 800; font-size: 19px; color: var(--cream); background: var(--c, var(--highlight)); border: 3px solid var(--orange-deep); }
+.path h3 { font-size: 21px; text-transform: uppercase; margin-bottom: 4px; }
+.path p { margin: 0; font-size: 15.5px; font-weight: 600; color: #2C5240; }
+.unis { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.uni { border: 3px dashed var(--orange-deep); border-radius: 12px; padding: 7px 15px; font-weight: 700; font-size: 14.5px; }
+
+.dna { display: block; margin: 34px auto 0; width: 52px; height: 120px; }
+.rung { stroke: var(--green-700); stroke-width: 5; stroke-linecap: round; transform-origin: center; animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+
+/* ===== quiz ===== */
+.quizcard { max-width: 640px; background: var(--yellow); color: var(--green-900); border-radius: 16px; overflow: hidden; box-shadow: 9px 9px 0 var(--orange-deep); }
+.quizcard .in { padding: 24px 26px 26px; }
+.qcount { font-weight: 700; font-size: 13.5px; color: #123F29; opacity: .8; margin-bottom: 8px; }
+.qprompt { font-family: var(--f-display); font-weight: 700; font-size: 20px; margin-bottom: 16px; }
+.qopts { display: grid; gap: 10px; }
+.qopt { font: inherit; font-weight: 700; font-size: 15px; text-align: left; cursor: pointer; padding: 11px 16px; border-radius: 12px; border: 2.5px solid var(--orange-deep); background: var(--cream); color: var(--green-900); transition: transform .12s; }
+.qopt:hover { transform: translateX(3px); }
+.qopt.correct { background: var(--green-700); color: #fff; border-color: var(--green-900); }
+.qopt.wrong { background: var(--tomato); color: #fff; border-color: var(--tomato-2); }
+.qopt[disabled] { cursor: default; }
+.qnext { margin-top: 16px; }
+.qscore { font-family: var(--f-display); font-weight: 800; font-size: 26px; margin-bottom: 8px; }
+.qagain { margin-top: 14px; }
+
+footer { padding: 56px 0 76px; border-top: 3px solid var(--rule); color: var(--ink-soft); }
+footer b { font-size: 24px; display: block; margin-bottom: 10px; }
+footer p { max-width: 50ch; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <span class="logo">About Myself</span>
+    <nav>
+      <a href="#personality">Personality</a>
+      <a href="#interests">Interests</a>
+      <a href="#learning">Learning</a>
+      <a href="#pomodoro">Pomodoro</a>
+      <a href="#future">Future</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+    <button class="swap" id="swap" type="button">Fluorescence</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <svg class="doodle d1" viewBox="0 0 200 110" aria-hidden="true">
+    <path d="M14 96 C34 22, 74 8, 96 62 C112 100, 150 96, 172 40"/>
+    <path d="M14 96 L8 66 M14 96 L46 92"/>
+  </svg>
+  <svg class="doodle d2" viewBox="0 0 240 150" aria-hidden="true">
+    <path d="M18 18 C64 6, 66 92, 110 84 C158 74, 148 16, 206 34"/>
+    <path d="M206 34 L176 26 M206 34 L192 62"/>
+  </svg>
+
+  <div class="wrap">
+    <div style="padding-top:clamp(20px,4vw,40px);text-align:center">
+      <div class="eyebrow stroke-md">Hi, glad you clicked in</div>
+      <h1 class="title stroke-lg">About Myself</h1>
+    </div>
+
+    <!-- MICROSCOPE HTML (STRICTLY UNTOUCHED) -->
+    <div class="fov-holder">
+      <div class="fov" id="fov">
+        <canvas id="cells"></canvas>
+        <div class="fov-inner" id="inner">
+          <div class="greet">specimen: one future doctor</div>
+          <div class="namewrap">
+            <label for="nameField">I am</label>
+            <input id="nameField" value="Tran Hai Yen" spellcheck="false" aria-label="Your name">
+          </div>
+          <div class="roles">biology <b>medicine, eventually</b> art and photography volleyball</div>
+        </div>
+      </div>
+      <div class="dial">
+        <label for="focus">Focus</label>
+        <input type="range" id="focus" min="0" max="100" value="0" aria-describedby="focusRead">
+        <span class="readout" id="focusRead">0%</span>
+      </div>
+    </div>
+
+    <div class="intro">
+      <p>Turn the focus knob if the slide looks blurry. Most days I need a minute to get there too.</p>
+      <p>This page is more or less what is in my head. A biology textbook, a sketchbook, and an ambitious plan involving two universities on the other side of the world.</p>
+    </div>
+
+    <div class="strip">
+      <span class="line"></span>
+      <div class="stops">
+        <button class="stop" type="button" data-go="#personality"><i></i><b>Personality</b></button>
+        <button class="stop" type="button" data-go="#interests"><i></i><b>Interests</b></button>
+        <button class="stop" type="button" data-go="#learning"><i></i><b>Learning</b></button>
+        <button class="stop" type="button" data-go="#pomodoro"><i></i><b>Pomodoro</b></button>
+        <button class="stop" type="button" data-go="#future"><i></i><b>Future</b></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="personality">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="stroke-sm">Personality and preferences</h2>
+      <p>The test says ENFP. In practice I am somewhere in the middle. Drag the slider to where I actually spend most of my time.</p>
+    </div>
+    <div class="duo">
+      <div class="panel">
+        <div class="mbti"><span>E</span><span>N</span><span>F</span><span>P</span></div>
+        <ul class="chips">
+          <li>ambivert</li><li>energetic</li><li>disciplined</li>
+          <li>punctual</li><li>resilient under pressure</li><li>works well independently</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="ends"><span>quiet corner</span><span>full room</span></div>
+        <input type="range" id="battery" min="0" max="100" value="55" aria-label="Social battery">
+        <div class="read" id="batteryRead"></div>
+      </div>
+    </div>
+
+    <div class="gifrow">
+      <div class="gifcard">
+        <div class="enfp-anim" id="enfpAnim">
+          <div class="core">ENFP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="interests">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="stroke-sm">Interests and strengths</h2>
+      <p>Six little obsessions of mine. Tap a window to uncover each one.</p>
+    </div>
+    <div class="cards" id="cards"></div>
+
+    <h3 style="margin:48px 0 22px;font-size:24px;text-transform:uppercase;color:var(--ink)">Where I am actually strong</h3>
+    <div class="bars" id="bars"></div>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="stroke-sm">Values and how I study</h2>
+      <p>What matters to me, and the honest version of how the studying gets done.</p>
+    </div>
+    <div class="cards">
+      <div class="win" tabindex="0" role="button" aria-expanded="false">
+        <div class="chrome"><i class="dot3"></i><i class="dot3"></i><i class="dot3"></i><span class="label">values.txt</span></div>
+        <div class="in">
+          <h3>What I care about</h3>
+          <ul>
+            <li>Discipline</li><li>Personal growth</li>
+            <li>Academic achievement</li><li>Helping others</li>
+          </ul>
+          <div class="extra">
+            <div>
+              <div class="extra-inner">
+                <p>Honestly, helping others is the only reason the rest of it matters to me. The discipline and the grades are just how I get there.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tapme">Open</div>
+        </div>
+      </div>
+      <div class="win" tabindex="0" role="button" aria-expanded="false">
+        <div class="chrome"><i class="dot3"></i><i class="dot3"></i><i class="dot3"></i><span class="label">study.log</span></div>
+        <div class="in">
+          <h3>How I actually learn</h3>
+          <ul>
+            <li>Better on my own than in a lecture</li>
+            <li>Pomodoro to keep myself honest</li>
+            <li>Real learning happens at home</li>
+          </ul>
+          <div class="extra">
+            <div>
+              <div class="extra-inner">
+                <p>I get restless sitting through a full lesson, so class is mostly where I collect the material. Home, with a timer running, is where it actually sinks in.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tapme">Open</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pomodoro">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="stroke-sm">Steal my timer</h2>
+      <p>Twenty-five minutes of focus, then a five-minute break. It’s one of my go-to study methods because it helps me stay focused without feeling overwhelmed. There’s a working timer here too, so press start and give it a try!</p>
+    </div>
+    
+    <div class="pomodoro-layout">
+      <div class="timer">
+        <svg class="tomato" viewBox="0 0 200 210" role="img" aria-label="Tomato kitchen timer">
+          <defs>
+            <radialGradient id="tg" cx="38%" cy="32%" r="72%">
+              <stop offset="0%" stop-color="#F0584C"/><stop offset="70%" stop-color="#D8352B"/>
+              <stop offset="100%" stop-color="#A8231C"/>
+            </radialGradient>
+          </defs>
+          <ellipse cx="100" cy="124" rx="88" ry="78" fill="url(#tg)"/>
+          <path d="M100 52 q-8 -22 -30 -26 q16 14 12 28 q-22 -18 -42 -10 q22 4 34 20
+                   q-24 -2 -32 12 q24 -6 42 4 q-2 -24 16 -28 z" fill="#2E8B3A"/>
+          <path d="M100 52 q8 -22 30 -26 q-16 14 -12 28 q22 -18 42 -10 q-22 4 -34 20
+                   q24 -2 32 12 q-24 -6 -42 4 q2 -24 -16 -28 z" fill="#37A345"/>
+          <rect x="93" y="36" width="14" height="24" rx="6" fill="#1F6F2B"/>
+          <circle cx="100" cy="124" r="56" fill="#FBF4E2"/>
+          <g id="ticks" stroke="#A8231C" stroke-width="2.5" stroke-linecap="round"></g>
+          <g class="pointer" id="pointer" transform="translate(0,18)">
+            <path d="M100 68 l9 16 h-18 z" fill="#D8352B"/>
+          </g>
+          <text class="face-txt" id="faceTime" x="100" y="136" text-anchor="middle">25:00</text>
+          <text x="100" y="158" text-anchor="middle" font-family="Nunito,sans-serif"
+                font-size="12" font-weight="700" fill="#A8231C" id="faceMode">FOCUS</text>
+        </svg>
+        <div>
+          <div class="btns">
+            <button class="btn go" id="startBtn" type="button">Start</button>
+            <button class="btn" id="resetBtn" type="button">Reset</button>
+            <button class="btn" id="modeBtn" type="button">Switch to break</button>
+          </div>
+          <p class="count" id="count">No blocks finished yet. I usually get started around 9 PM.</p>
+          <p style="color:var(--ink-soft);font-weight:600;max-width:40ch;margin:auto">Most of my study blocks go toward biology, chemistry, or IELTS practice... probably in that order of how much I enjoy them.</p>
+        </div>
+      </div>
+      
+      <!-- Interactive Calendar Widget -->
+      <div class="calendar-app">
+        <div class="cal-header">
+          <button class="cal-nav" type="button">&lt;</button>
+          <span>September</span>
+          <button class="cal-nav" type="button">&gt;</button>
+        </div>
+        <div class="cal-weekdays">
+          <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+        </div>
+        <div class="cal-days" id="calDays"></div>
+        
+        <!-- Interactive Test Dialog -->
+        <div id="testModal" class="sketch-modal" style="display:none;">
+          <h4>Mark a Test</h4>
+          <input type="text" id="testName" placeholder="Test Name (e.g. Bio Final)">
+          <input type="text" id="testWeight" placeholder="Weight (e.g. 20%)">
+          <input type="text" id="testSubject" placeholder="Subject">
+          <div style="display:flex;gap:10px;margin-top:4px;">
+            <button type="button" id="saveTestBtn" class="btn go" style="flex:1;padding:6px 12px;font-size:15px;">Save</button>
+            <button type="button" id="cancelTestBtn" class="btn" style="flex:1;padding:6px 12px;font-size:15px;">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="future">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="stroke-sm">Where this is all going</h2>
+      <p>The order I actually have to do things in, not the order I would like to.</p>
+    </div>
+
+    <div class="gifrow" style="margin-bottom:34px">
+      <div class="gifcard">
+        <svg viewBox="0 0 260 300" width="150" height="173" role="img" aria-label="Animated doctor waving">
+          <g class="wave-loop">
+            <path d="M176 176 L210 124" stroke="#fff" stroke-width="26" stroke-linecap="round"/>
+            <path d="M176 176 L210 124" stroke="#CFE4EE" stroke-width="2" fill="none"/>
+            <circle cx="216" cy="114" r="18" fill="#F6D2B8"/>
+            <path d="M206 104 q10 -14 20 -2" stroke="#E0B295" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </g>
+          <path d="M92 168 q38 -22 76 0 l16 112 q-54 14 -108 0 z" fill="#fff"/>
+          <path d="M116 162 q14 22 28 0 l10 118 h-48 z" fill="#5CCBD6"/>
+          <path d="M92 168 l24 -6 q14 24 28 0 l24 6 q-26 26 -52 26 t-24 -26 z" fill="#F2F7FA"/>
+          <path d="M116 166 q-14 54 12 60 q26 -6 12 -60" stroke="#1E4D8C" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <circle cx="140" cy="232" r="11" fill="#1E4D8C"/>
+          <circle cx="140" cy="232" r="5" fill="#8FB4E2"/>
+          <circle cx="130" cy="120" r="42" fill="#F6D2B8"/>
+          <path d="M88 116 q4 -46 42 -46 t42 46 q-12 -22 -42 -20 t-42 20 z" fill="#161A2E"/>
+          <circle cx="114" cy="122" r="13" fill="none" stroke="#C97C3E" stroke-width="4"/>
+          <circle cx="148" cy="122" r="13" fill="none" stroke="#C97C3E" stroke-width="4"/>
+          <path d="M127 122 h8" stroke="#C97C3E" stroke-width="4"/>
+          <circle cx="114" cy="122" r="4" fill="#161A2E"/>
+          <circle cx="148" cy="122" r="4" fill="#161A2E"/>
+          <path d="M118 142 q12 12 24 0 q-12 8 -24 0 z" fill="#8C3A3A"/>
+        </svg>
+        <p class="caption">Future me, still practicing the wave.</p>
+      </div>
+    </div>
+
+    <ol class="path">
+      <li style="--c:var(--green-700)">
+        <h3>Get the science solid</h3>
+        <p>Biology and chemistry are getting most of my hours right now, since nothing after this works without them.</p>
+      </li>
+      <li style="--c:var(--amber)">
+        <h3>Get the IELTS score</h3>
+        <p>English is the door that opens studying abroad, so it is the next thing on the list.</p>
+      </li>
+      <li style="--c:var(--highlight)">
+        <h3>Get in somewhere good</h3>
+        <p>Two schools I keep coming back to:</p>
+        <div class="unis"><span class="uni">University of Sydney</span><span class="uni">Monash University</span></div>
+      </li>
+      <li style="--c:var(--tomato)">
+        <h3>Become a doctor</h3>
+        <p>A career worth being proud of, that pays enough to live well, and that actually puts me in a position to help people. That last part is the whole point.</p>
+      </li>
+    </ol>
+    <svg class="dna" viewBox="0 0 60 140" aria-hidden="true">
+      <path d="M14 4 C46 30, 14 54, 46 80 C14 106, 46 130, 14 136" stroke="#2E8B3A" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M46 4 C14 30, 46 54, 14 80 C46 106, 14 130, 46 136" stroke="#37A345" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <g id="rungs"></g>
+    </svg>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="stroke-sm">Small quiz</h2>
+      <p>Think you were paying attention? Five questions, no pressure.</p>
+    </div>
+    <div class="quizcard">
+      <div class="chrome"><i class="dot3"></i><i class="dot3"></i><i class="dot3"></i><span class="label">quiz.exe</span></div>
+      <div class="in" id="quizBody"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b class="stroke-sm">Thanks for reading this far.</b>
+    <p>Biology taught me how things work. Art taught me how to actually look at them. I want a career that needs both, and if it turns out to be a doctor who still sketches on the side, that is fine by me.</p>
+  </div>
+</footer>
+
+<script>
+// --- 1. Clean Event Delegation for Expanding Windows ---
+document.addEventListener('click', (e) => {
+  const win = e.target.closest('.win');
+  if (!win) return;
+  
+  const isExpanded = win.getAttribute('aria-expanded') === 'true';
+  win.setAttribute('aria-expanded', !isExpanded);
+  
+  const tapme = win.querySelector('.tapme');
+  if (tapme) tapme.textContent = isExpanded ? 'Close' : 'Open';
+});
+
+// --- 2. Generating Interests, Strengths, DNA, Quiz ---
+const interests = [
+  { title: "BIOLOGY", file: "cells and systems", tick: "var(--green-700)", items: ["How the body actually works"], desc: "The one subject I would still read with no test coming up. It is also the reason medicine is the plan and not just a phase." },
+  { title: "DESIGN", file: "structure", tick: "var(--orange-deep)", items: ["Layout, colour, composition"], desc: "Basically problem solving that is also allowed to look good. It scratches the same part of my brain as biology, just with better colours." },
+  { title: "ART", file: "hand made", tick: "var(--pink)", items: ["Drawing, mostly for myself"], desc: "This is how I think something through slowly. Also the fastest way I know to come back from a rough study block." },
+  { title: "PHOTOGRAPHY", file: "light", tick: "", items: ["Framing and timing"], desc: "A camera makes you notice details you would otherwise walk right past, which turns out to be a useful habit for someone going into science." },
+  { title: "SCIENCE", file: "minus physics", tick: "var(--green-700)", items: ["Chemistry especially", "Physics, less so"], desc: "Chemistry is the other half of the medicine plan, so it gets real effort. Physics and I have an understanding that we stay out of each other's way." },
+  { title: "VOLLEYBALL", file: "on court", tick: "var(--tomato)", items: ["Fast decisions, on my feet"], desc: "The thing that stops my whole life from being a desk and a textbook. It keeps the energetic side of me actually used." }
+];
+
+const cardsContainer = document.getElementById('cards');
+if (cardsContainer) {
+  cardsContainer.innerHTML = interests.map(int => `
+    <div class="win" tabindex="0" role="button" aria-expanded="false">
+      <div class="chrome">
+        <i class="dot3"></i><i class="dot3"></i><i class="dot3"></i>
+        ${int.tick ? `<i class="tick" style="background: ${int.tick}"></i>` : ''}
+        <span class="label">${int.file}</span>
+      </div>
+      <div class="in">
+        <h3>${int.title}</h3>
+        <ul>${int.items.map(i => `<li>${i}</li>`).join('')}</ul>
+        <div class="extra">
+          <div>
+            <div class="extra-inner">
+              <p>${int.desc}</p>
+            </div>
+          </div>
+        </div>
+        <div class="tapme">Open</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+const strengths = [
+  { name: "Focus & Discipline", val: 90, c: "var(--green-700)" },
+  { name: "Scientific Reasoning", val: 85, c: "var(--amber)" },
+  { name: "Creative Expression", val: 75, c: "var(--highlight)" }
+];
+
+const barsContainer = document.getElementById('bars');
+if (barsContainer) {
+  barsContainer.innerHTML = strengths.map(s => `
+    <div>
+      <div class="bar-top"><h3>${s.name}</h3><em>${s.val}%</em></div>
+      <div class="track"><div class="fill" style="width: 0; --c: ${s.c}"></div></div>
+    </div>
+  `).join('');
+  
+  setTimeout(() => {
+    document.querySelectorAll('.fill').forEach((el, i) => {
+      el.style.width = strengths[i].val + '%';
+    });
+  }, 300);
+}
+
+// Fixed DNA Animation
+const rungsGroup = document.getElementById('rungs');
+if (rungsGroup) {
+  let rungsHTML = '';
+  for(let i=0; i<10; i++) {
+    const y = 16 + (i * 11);
+    rungsHTML += `<path d="M14 ${y} L46 ${y}" class="rung" style="animation-delay: ${i * 0.2}s" />`;
+  }
+  rungsGroup.innerHTML = rungsHTML;
+}
+
+// 5-Question Quiz Restored
+const quizData = [
+  { q: "What MBTI personality type am I according to the test?", opts: ["INTJ", "ENFP", "ISTP", "ESFJ"], a: 1 },
+  { q: "Which of these is one of my main study methods?", opts: ["All-nighters", "Highlighting everything", "Pomodoro timer", "Group study"], a: 2 },
+  { q: "Which two subjects currently take up most of my time?", opts: ["Math & Physics", "Biology & Chemistry", "Art & History", "English & Literature"], a: 1 },
+  { q: "Why am I focusing on getting a good IELTS score?", opts: ["To become a teacher", "To write a book", "To study abroad", "Just for fun"], a: 2 },
+  { q: "What is my ultimate career goal?", opts: ["Professional volleyball player", "Photographer", "Software Engineer", "Doctor"], a: 3 }
+];
+
+const quizBody = document.getElementById('quizBody');
+let currentQ = 0;
+let score = 0;
+
+function renderQuiz() {
+  if (!quizBody) return;
+  if (currentQ >= quizData.length) {
+    quizBody.innerHTML = `
+      <div class="qscore">You scored ${score} out of ${quizData.length}!</div>
+      <p>${score === 5 ? "Perfect memory! You really paid attention." : "Thanks for playing along!"}</p>
+      <button class="btn qagain" id="restartQuiz" type="button">Try Again</button>
+    `;
+    document.getElementById('restartQuiz').addEventListener('click', () => {
+      currentQ = 0; score = 0; renderQuiz();
+    });
+    return;
+  }
+  
+  const q = quizData[currentQ];
+  quizBody.innerHTML = `
+    <div class="qcount">Question ${currentQ + 1} of ${quizData.length}</div>
+    <div class="qprompt">${q.q}</div>
+    <div class="qopts">
+      ${q.opts.map((opt, i) => `<button class="qopt" data-idx="${i}" type="button">${opt}</button>`).join('')}
+    </div>
+    <div style="display:none; margin-top:16px;" id="qNextWrap">
+      <button class="btn qnext" id="nextBtn" type="button">Next Question</button>
+    </div>
+  `;
+  
+  const opts = quizBody.querySelectorAll('.qopt');
+  const nextWrap = document.getElementById('qNextWrap');
+  
+  opts.forEach(btn => {
+    btn.addEventListener('click', function() {
+      if (nextWrap.style.display !== 'none') return;
+      opts.forEach(b => b.setAttribute('disabled', 'true'));
+      
+      const idx = parseInt(this.getAttribute('data-idx'));
+      if (idx === q.a) {
+        this.classList.add('correct');
+        score++;
+      } else {
+        this.classList.add('wrong');
+        opts[q.a].classList.add('correct');
+      }
+      nextWrap.style.display = 'block';
+    });
+  });
+  
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    currentQ++;
+    renderQuiz();
+  });
+}
+renderQuiz();
+
+// --- 3. Battery Slider Logic ---
+const batteryInput = document.getElementById('battery');
+const batteryRead = document.getElementById('batteryRead');
+if (batteryInput && batteryRead) {
+    const updateBattery = () => {
+      const val = batteryInput.value;
+      let text = "";
+      if (val < 30) text = "<b>Recharging</b> Mostly hanging out with my sketchbook and a good playlist.";
+      else if (val < 70) text = "<b>In the middle</b> Happy with a small group of friends.";
+      else text = "<b>High energy</b> Ready to go out and talk to everyone.";
+      batteryRead.innerHTML = text;
+    }
+    batteryInput.addEventListener('input', updateBattery);
+    updateBattery();
+}
+
+// --- 4. Smooth Scroll ---
+document.querySelectorAll('nav a, .stop').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = btn.getAttribute('href') || btn.dataset.go;
+    const target = document.querySelector(targetId);
+    if(target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// --- 5. Theme Swapper (Fluorescence) ---
+const swapBtn = document.getElementById('swap');
+if(swapBtn) {
+  swapBtn.addEventListener('click', () => {
+      const root = document.documentElement;
+      if (root.getAttribute('data-theme') === 'dark') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', 'dark');
+  });
+}
+
+// --- 6. ENFP Animated Sparks ---
+const animCore = document.getElementById('enfpAnim');
+if (animCore) {
+    for(let i=0; i<8; i++) {
+        const spark = document.createElement('div');
+        spark.className = 'spark';
+        const size = Math.random() * 8 + 6;
+        const angle = (i / 8) * Math.PI * 2;
+        const dist = 60;
+        spark.style.width = size + 'px';
+        spark.style.height = size + 'px';
+        spark.style.background = ['var(--highlight)', 'var(--yellow)', 'var(--orange)', 'var(--green-700)'][i%4];
+        spark.style.left = `calc(50% - ${size/2}px + ${Math.cos(angle)*dist}px)`;
+        spark.style.top = `calc(50% - ${size/2}px + ${Math.sin(angle)*dist}px)`;
+        spark.style.animationDelay = (Math.random() * 2) + 's';
+        animCore.appendChild(spark);
+    }
+}
+
+// --- 7. Microscope Focus & Fixed Canvas Animation ---
+const fovInner = document.getElementById('inner');
+const focusInput = document.getElementById('focus');
+const focusRead = document.getElementById('focusRead');
+const canvas = document.getElementById('cells');
+
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  canvas.width = 440; canvas.height = 440;
+  
+  const cells = Array.from({length: 15}).map(() => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 40 + 20, 
+      vx: (Math.random() - 0.5) * 0.4, 
+      vy: (Math.random() - 0.5) * 0.4  
+  }));
+
+  // Helper function to check if dark mode is active
+  function isDarkMode() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' || 
+           (!document.documentElement.hasAttribute('data-theme') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+
+  function animateCells() {
+      ctx.clearRect(0,0, canvas.width, canvas.height);
+      
+      // Update cell color based on current theme
+      if (isDarkMode()) {
+          ctx.fillStyle = 'rgba(246, 214, 130, 0.15)'; // var(--yellow) fill
+          ctx.strokeStyle = 'rgba(231, 154, 51, 0.4)'; // var(--amber) stroke
+      } else {
+          ctx.fillStyle = 'rgba(232, 84, 140, 0.1)'; // var(--pink) fill
+          ctx.strokeStyle = 'rgba(232, 84, 140, 0.25)'; // var(--pink) stroke
+      }
+      
+      ctx.lineWidth = 3;
+      
+      cells.forEach(c => {
+          c.x += c.vx;
+          c.y += c.vy;
+          
+          if(c.x < -c.r) c.x = canvas.width + c.r;
+          if(c.x > canvas.width + c.r) c.x = -c.r;
+          if(c.y < -c.r) c.y = canvas.height + c.r;
+          if(c.y > canvas.height + c.r) c.y = -c.r;
+
+          ctx.beginPath();
+          ctx.arc(c.x, c.y, c.r, 0, Math.PI*2);
+          ctx.fill();
+          ctx.stroke();
+      });
+      requestAnimationFrame(animateCells);
+  }
+  animateCells();
+}
+
+if (focusInput && fovInner) {
+    focusInput.addEventListener('input', (e) => {
+      const val = e.target.value;
+      focusRead.textContent = val + '%';
+      const blurVal = 14 - (val / 100 * 14);
+      const sharpVal = 0.22 + (val / 100 * 0.78);
+      fovInner.style.setProperty('--blur', `${blurVal}px`);
+      fovInner.style.setProperty('--sharp', sharpVal);
+    });
+}
+
+// --- 8. Timer Logic ---
+let timeLeft = 25 * 60;
+let isRunning = false;
+let isBreak = false;
+let timerInterval;
+
+const timeDisplay = document.getElementById('faceTime');
+const modeDisplay = document.getElementById('faceMode');
+const startBtn = document.getElementById('startBtn');
+const resetBtn = document.getElementById('resetBtn');
+const modeBtn = document.getElementById('modeBtn');
+const timerPointer = document.getElementById('pointer');
+
+function updateTimerDisplay() {
+    const m = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+    const s = (timeLeft % 60).toString().padStart(2, '0');
+    if(timeDisplay) timeDisplay.textContent = `${m}:${s}`;
+    
+    if(timerPointer) {
+        const total = isBreak ? 5 * 60 : 25 * 60;
+        const percent = 1 - (timeLeft / total);
+        timerPointer.style.transform = `translate(0,18px) rotate(${percent * 360}deg)`;
+    }
+}
+
+if(startBtn) {
+  startBtn.addEventListener('click', () => {
+      if(isRunning) {
+          clearInterval(timerInterval);
+          startBtn.textContent = 'Start';
+      } else {
+          timerInterval = setInterval(() => {
+              if(timeLeft > 0) {
+                  timeLeft--;
+                  updateTimerDisplay();
+              } else {
+                  clearInterval(timerInterval);
+                  startBtn.textContent = 'Start';
+                  isRunning = false;
+              }
+          }, 1000);
+          startBtn.textContent = 'Pause';
+      }
+      isRunning = !isRunning;
+  });
+}
+
+if(resetBtn) {
+  resetBtn.addEventListener('click', () => {
+      clearInterval(timerInterval);
+      isRunning = false;
+      startBtn.textContent = 'Start';
+      timeLeft = isBreak ? 5 * 60 : 25 * 60;
+      updateTimerDisplay();
+  });
+}
+
+if(modeBtn) {
+  modeBtn.addEventListener('click', () => {
+      clearInterval(timerInterval);
+      isRunning = false;
+      startBtn.textContent = 'Start';
+      isBreak = !isBreak;
+      timeLeft = isBreak ? 5 * 60 : 25 * 60;
+      modeDisplay.textContent = isBreak ? 'BREAK' : 'FOCUS';
+      modeBtn.textContent = isBreak ? 'Switch to focus' : 'Switch to break';
+      updateTimerDisplay();
+  });
+}
+
+// --- 9. Calendar Interactive Logic ---
+const calDays = document.getElementById('calDays');
+const testModal = document.getElementById('testModal');
+const saveTestBtn = document.getElementById('saveTestBtn');
+const cancelTestBtn = document.getElementById('cancelTestBtn');
+const inputName = document.getElementById('testName');
+const inputWeight = document.getElementById('testWeight');
+const inputSubject = document.getElementById('testSubject');
+let activeDayElement = null;
+
+if (calDays && testModal) {
+  for(let i = 0; i < 2; i++) {
+    const emptyDay = document.createElement('div');
+    calDays.appendChild(emptyDay);
+  }
+  
+  for(let i = 1; i <= 30; i++) {
+    const day = document.createElement('div');
+    day.className = 'cal-day';
+    day.textContent = i;
+    day.addEventListener('click', () => {
+      activeDayElement = day;
+      testModal.style.display = 'flex';
+      inputName.value = ''; inputWeight.value = ''; inputSubject.value = '';
+      inputName.focus();
+    });
+    calDays.appendChild(day);
+  }
+
+  cancelTestBtn.addEventListener('click', () => testModal.style.display = 'none');
+  saveTestBtn.addEventListener('click', () => {
+    if (activeDayElement && inputName.value.trim() !== '') {
+      activeDayElement.classList.add('has-test');
+      activeDayElement.title = `Test: ${inputName.value}\nSubject: ${inputSubject.value}\nWeight: ${inputWeight.value}`;
+    }
+    testModal.style.display = 'none';
+  });
+}
+</script>
+</body>
+</html>
