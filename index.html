@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Myself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <span class="logo">About Myself</span>
+    <nav>
+      <a href="#personality">Personality</a>
+      <a href="#interests">Interests</a>
+      <a href="#learning">Learning</a>
+      <a href="#pomodoro">Pomodoro</a>
+      <a href="#future">Future</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+    <button class="swap" id="swap" type="button">Fluorescence</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <span class="blob"></span>
+  <svg class="doodle d1" viewBox="0 0 200 110" aria-hidden="true">
+    <path d="M14 96 C34 22, 74 8, 96 62 C112 100, 150 96, 172 40"/>
+    <path d="M14 96 L8 66 M14 96 L46 92"/>
+  </svg>
+  <svg class="doodle d2" viewBox="0 0 240 150" aria-hidden="true">
+    <path d="M18 18 C64 6, 66 92, 110 84 C158 74, 148 16, 206 34"/>
+    <path d="M206 34 L176 26 M206 34 L192 62"/>
+  </svg>
+
+  <div class="wrap">
+    <div style="padding-top:clamp(20px,4vw,40px);text-align:center">
+      <div class="eyebrow stroke-md">Hi, glad you clicked in</div>
+      <h1 class="title stroke-lg">About Myself</h1>
+    </div>
+
+    <div class="fov-holder">
+      <div class="fov" id="fov">
+        <canvas id="cells"></canvas>
+        <div class="fov-inner" id="inner">
+          <div class="greet">specimen: one future doctor</div>
+          <div class="namewrap">
+            <label for="nameField">I am</label>
+            <input id="nameField" value="Tran Hai Yen" spellcheck="false" aria-label="Your name">
+          </div>
+          <div class="roles">biology <b>medicine, eventually</b> art and photography volleyball</div>
+        </div>
+      </div>
+      <div class="dial">
+        <label for="focus">Focus</label>
+        <input type="range" id="focus" min="0" max="100" value="0" aria-describedby="focusRead">
+        <span class="readout" id="focusRead">0%</span>
+      </div>
+    </div>
+
+    <div class="intro">
+      <p>Turn the focus knob if the slide looks blurry. Most days I need a minute to get there too.</p>
+      <p>This page is more or less what is in my head. A biology textbook, a sketchbook, and an ambitious plan involving two universities on the other side of the world.</p>
+    </div>
+
+    <div class="strip">
+      <span class="line"></span>
+      <div class="stops">
+        <button class="stop" type="button" data-go="#personality"><i></i><b>Personality</b></button>
+        <button class="stop" type="button" data-go="#interests"><i></i><b>Interests</b></button>
+        <button class="stop" type="button" data-go="#learning"><i></i><b>Learning</b></button>
+        <button class="stop" type="button" data-go="#pomodoro"><i></i><b>Pomodoro</b></button>
+        <button class="stop" type="button" data-go="#future"><i></i><b>Future</b></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="personality">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="stroke-sm">Personality and preferences</h2>
+      <p>The test says ENFP. In practice I am somewhere in the middle. Drag the slider to where I actually spend most of my time.</p>
+    </div>
+    <div class="duo">
+      <div class="panel">
+        <div class="mbti"><span>E</span><span>N</span><span>F</span><span>P</span></div>
+        <ul class="chips">
+          <li>ambivert</li><li>energetic</li><li>disciplined</li>
+          <li>punctual</li><li>resilient under pressure</li><li>works well independently</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="ends"><span>quiet corner</span><span>full room</span></div>
+        <input type="range" id="battery" min="0" max="100" value="55" aria-label="Social battery">
+        <div class="read" id="batteryRead"></div>
+      </div>
+    </div>
+
+    <div class="gifrow">
+      <div class="gifcard">
+        <span class="gif-badge">GIF</span>
+        <div class="enfp-anim" id="enfpAnim">
+          <div class="core">ENFP</div>
+        </div>
+        <p>ENFP energy, animated</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="interests">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="stroke-sm">Interests and strengths</h2>
+      <p>Six things I keep coming back to, whether or not anyone is asking. Tap a window to see why.</p>
+    </div>
+    <div class="cards" id="cards"></div>
+
+    <h3 style="margin:48px 0 22px;font-size:24px;text-transform:uppercase;color:var(--ink)">Where I am actually strong</h3>
+    <div class="bars" id="bars"></div>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="stroke-sm">Values and how I study</h2>
+      <p>What matters to me, and the honest version of how the studying gets done.</p>
+    </div>
+    <div class="cards">
+      <button class="win" type="button" aria-expanded="false">
+        <div class="chrome"><i class="dot3"></i><i class="dot3"></i><i class="dot3"></i><span class="label">values.txt</span></div>
+        <div class="in">
+          <h3>What I care about</h3>
+          <ul>
+            <li>Discipline</li><li>Personal growth</li>
+            <li>Academic achievement</li><li>Helping others</li>
+          </ul>
+          <div class="extra"><div><p>Honestly, helping others is the only reason the rest of it matters to me. The discipline and the grades are just how I get there.</p></div></div>
+          <div class="tapme">Open</div>
+        </div>
+      </button>
+      <button class="win" type="button" aria-expanded="false">
+        <div class="chrome"><i class="dot3"></i><i class="dot3"></i><i class="dot3"></i><span class="label">study.log</span></div>
+        <div class="in">
+          <h3>How I actually learn</h3>
+          <ul>
+            <li>Better on my own than in a lecture</li>
+            <li>Pomodoro to keep myself honest</li>
+            <li>Real learning happens at home</li>
+          </ul>
+          <div class="extra"><div><p>I get restless sitting through a full lesson, so class is mostly where I collect the material. Home, with a timer running, is where it actually sinks in.</p></div></div>
+          <div class="tapme">Open</div>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="pomodoro">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="stroke-sm">Steal my timer</h2>
+      <p>Twenty five minutes on, five minutes off. This is the method behind most of what is on this page, and it is a working timer, so go ahead and press start.</p>
+    </div>
+    <div class="timer">
+      <svg class="tomato" viewBox="0 0 200 210" role="img" aria-label="Tomato kitchen timer">
+        <defs>
+          <radialGradient id="tg" cx="38%" cy="32%" r="72%">
+            <stop offset="0%" stop-color="#F0584C"/><stop offset="70%" stop-color="#D8352B"/>
+            <stop offset="100%" stop-color="#A8231C"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="100" cy="124" rx="88" ry="78" fill="url(#tg)"/>
+        <path d="M100 52 q-8 -22 -30 -26 q16 14 12 28 q-22 -18 -42 -10 q22 4 34 20
+                 q-24 -2 -32 12 q24 -6 42 4 q-2 -24 16 -28 z" fill="#2E8B3A"/>
+        <path d="M100 52 q8 -22 30 -26 q-16 14 -12 28 q22 -18 42 -10 q-22 4 -34 20
+                 q24 -2 32 12 q-24 -6 -42 4 q2 -24 -16 -28 z" fill="#37A345"/>
+        <rect x="93" y="36" width="14" height="24" rx="6" fill="#1F6F2B"/>
+        <circle cx="100" cy="124" r="56" fill="#FBF4E2"/>
+        <g id="ticks" stroke="#A8231C" stroke-width="2.5" stroke-linecap="round"></g>
+        <g class="pointer" id="pointer" transform="translate(0,18)">
+          <path d="M100 68 l9 16 h-18 z" fill="#D8352B"/>
+        </g>
+        <text class="face-txt" id="faceTime" x="100" y="136" text-anchor="middle">25:00</text>
+        <text x="100" y="158" text-anchor="middle" font-family="Nunito,sans-serif"
+              font-size="12" font-weight="700" fill="#A8231C" id="faceMode">FOCUS</text>
+      </svg>
+      <div>
+        <div class="btns">
+          <button class="btn go" id="startBtn" type="button">Start</button>
+          <button class="btn" id="resetBtn" type="button">Reset</button>
+          <button class="btn" id="modeBtn" type="button">Switch to break</button>
+        </div>
+        <p class="count" id="count">No blocks finished yet. This one is usually going by 9pm.</p>
+        <p style="color:var(--ink-soft);font-weight:600;max-width:40ch">Right now most blocks go to biology, chemistry, or IELTS practice, roughly in that order of enthusiasm.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="future">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="stroke-sm">Where this is all going</h2>
+      <p>The order I actually have to do things in, not the order I would like to.</p>
+    </div>
+
+    <div class="gifrow" style="margin-bottom:34px">
+      <div class="gifcard">
+        <span class="gif-badge">GIF</span>
+        <svg viewBox="0 0 260 300" width="150" height="173" role="img" aria-label="Animated doctor waving">
+          <g class="wave-loop">
+            <path d="M176 176 L210 124" stroke="#fff" stroke-width="26" stroke-linecap="round"/>
+            <path d="M176 176 L210 124" stroke="#CFE4EE" stroke-width="2" fill="none"/>
+            <circle cx="216" cy="114" r="18" fill="#F6D2B8"/>
+            <path d="M206 104 q10 -14 20 -2" stroke="#E0B295" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </g>
+          <path d="M92 168 q38 -22 76 0 l16 112 q-54 14 -108 0 z" fill="#fff"/>
+          <path d="M116 162 q14 22 28 0 l10 118 h-48 z" fill="#5CCBD6"/>
+          <path d="M92 168 l24 -6 q14 24 28 0 l24 6 q-26 26 -52 26 t-24 -26 z" fill="#F2F7FA"/>
+          <path d="M116 166 q-14 54 12 60 q26 -6 12 -60" stroke="#1E4D8C" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <circle cx="140" cy="232" r="11" fill="#1E4D8C"/>
+          <circle cx="140" cy="232" r="5" fill="#8FB4E2"/>
+          <circle cx="130" cy="120" r="42" fill="#F6D2B8"/>
+          <path d="M88 116 q4 -46 42 -46 t42 46 q-12 -22 -42 -20 t-42 20 z" fill="#161A2E"/>
+          <circle cx="114" cy="122" r="13" fill="none" stroke="#C97C3E" stroke-width="4"/>
+          <circle cx="148" cy="122" r="13" fill="none" stroke="#C97C3E" stroke-width="4"/>
+          <path d="M127 122 h8" stroke="#C97C3E" stroke-width="4"/>
+          <circle cx="114" cy="122" r="4" fill="#161A2E"/>
+          <circle cx="148" cy="122" r="4" fill="#161A2E"/>
+          <path d="M118 142 q12 12 24 0 q-12 8 -24 0 z" fill="#8C3A3A"/>
+        </svg>
+        <p>Future me, still practicing the wave</p>
+      </div>
+    </div>
+
+    <ol class="path">
+      <li style="--c:var(--green-700)">
+        <h3>Get the science solid</h3>
+        <p>Biology and chemistry are getting most of my hours right now, since nothing after this works without them.</p>
+      </li>
+      <li style="--c:var(--amber)">
+        <h3>Get the IELTS score</h3>
+        <p>English is the door that opens studying abroad, so it is the next thing on the list.</p>
+      </li>
+      <li style="--c:var(--pink)">
+        <h3>Get in somewhere good</h3>
+        <p>Two schools I keep coming back to:</p>
+        <div class="unis"><span class="uni">University of Sydney</span><span class="uni">Monash University</span></div>
+      </li>
+      <li style="--c:var(--tomato)">
+        <h3>Become a doctor</h3>
+        <p>A career worth being proud of, that pays enough to live well, and that actually puts me in a position to help people. That last part is the whole point.</p>
+      </li>
+    </ol>
+    <svg class="dna" viewBox="0 0 60 140" aria-hidden="true">
+      <path d="M14 4 C46 30, 14 54, 46 80 C14 106, 46 130, 14 136" stroke="#2E8B3A" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M46 4 C14 30, 46 54, 14 80 C46 106, 14 130, 46 136" stroke="#37A345" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <g id="rungs"></g>
+    </svg>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="stroke-sm">Small quiz</h2>
+      <p>Think you were paying attention? Five questions, no pressure.</p>
+    </div>
+    <div class="quizcard">
+      <div class="chrome"><i class="dot3"></i><i class="dot3"></i><i class="dot3"></i><span class="label">quiz.exe</span></div>
+      <div class="in" id="quizBody"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b class="stroke-sm">Thanks for reading this far.</b>
+    <p>Biology taught me how things work. Art taught me how to actually look at them. I want a career that needs both, and if it turns out to be a doctor who still sketches on the side, that is fine by me.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
